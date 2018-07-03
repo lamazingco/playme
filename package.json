@@ -1,0 +1,17 @@
+{
+  "name": "helloelectron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.3"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
