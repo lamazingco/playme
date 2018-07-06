@@ -6,7 +6,8 @@ let webviewId;
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
     titleBarStyle: 'hidden-inset',
-    frame: true
+    frame: true,
+    icon: path.join(__dirname, 'assets/icons/png/64x64.png')
   });
   mainWindow.loadURL('https://music.youtube.com');
   //mainWindow.openDevTools({ mode: 'bottom' });
