@@ -1,6 +1,12 @@
-Youtube Music Electron App
-==========================
-YTE makes it easy to use YouTube music on desktop. Most importantly, it can handle the media controls.
+<img src="static/playme-docs-logo-shadow.png" width="240">
+
+PlayMe is an unofficial YouTube Music desktop app with some additional features. 
+
+Why? So that you can enjoy your YouTube Music on desktop, without having to worry about the browser tab which plays it now.
+
+How does it work?
+---------
+It's a basic Electron WebView with Youtube Music. on top of that, additional system functionalities were added. The idea is not to use the Youtube API, but instead, to re-use the original youtube music functionality. 
 
 Features:
 ---------
@@ -12,14 +18,15 @@ Features:
 
 Future Plans:
 ----------
-* create & set an icon
-* build apps for OSX, Linux & Windows (binary files)
-* show notifications on song changed (if window not visible)
-* seek while holding forward/backward media controls button
-* implement preferences
-* start on launch
-* customizable global mute shortcut
-* create a landing page
-* submit app to: `https://electronjs.org/apps`
-* suggestions? 
+- [ ] create & set an icon
+- [ ] set up automatic updates delivery
+- [ ] display system tray icon & allow basic controls from there
+- [ ] display current song & current playlist in system tray
+- [ ] display notification on song changed (if window not visible)
+- [ ] seek while holding forward/backward media controls button
+- [ ] implement preferences
+- [ ] start on launch
+- [ ] customizable global shortcuts
+- [ ] create a landing page
+- [ ] suggestions? 
 

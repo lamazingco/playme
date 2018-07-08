@@ -1,17 +1,46 @@
 {
-  "name": "helloelectron",
+  "name": "playme",
   "version": "1.0.0",
-  "description": "",
+  "description": "Elegant YouTube Music desktop app",
   "main": "index.js",
+  "repository":"",
   "scripts": {
-    "start": "electron index.js"
+    "start": "electron index.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -mwl"
   },
-  "author": "",
+  "build": {
+    "appId": "engineer.filip.playme",
+    "productName": "PlayMe",
+    "copyright": "Copyright © 2018 Luchianenco Filip",
+    "mac": {
+      "category": "music"
+    },
+    "linux": {
+      "category": "music",
+      "target": [
+        "AppImage"
+      ]
+    },
+    "win": {
+      "target": "NSIS"
+    }
+  },
+  "postinstall": "electron-builder install-app-deps",
+  "author": "Filip Luchianenco",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^2.0.3"
+    "electron": "^2.0.3",
+    "electron-builder": "^20.19.2"
   },
   "dependencies": {
     "jquery": "^3.3.1"
-  }
+  },
+  "keywords": [
+    "music",
+    "player",
+    "electron",
+    "desktop",
+    "youtube"
+]
 }
