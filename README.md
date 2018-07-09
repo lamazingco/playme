@@ -1,8 +1,8 @@
 <img src="static/playme-docs-logo-shadow.png" width="240">
 
-PlayMe is an unofficial YouTube Music desktop app with some additional features. 
+PlayMe is an unofficial YouTube Music desktop app with some additional tweaks on top. 
 
-Why? So that you can enjoy your YouTube Music on desktop, without having to worry about the browser tab which plays it now.
+Why? So that you can enjoy your YouTube Music on desktop, without having to worry about the browser tab which plays it.
 
 How does it work?
 ---------
@@ -16,10 +16,31 @@ Features:
 
 ![preview](https://cdn-std.dprcdn.net/files/acc_661012/UkxLv1)
 
+Install:
+--------
+
+*macOS 10.9+, Linux, and Windows 7+ are supported*
+
+Download the latest version on the [website](http://playme.filip.engineer) or below.
+
+### macOS
+
+[**Download**](https://github.com/filipuic/playme/releases/latest) the `.dmg` file.
+
+### Linux
+
+[**Download**](https://github.com/filipuic/playme/releases/latest) the `.AppImage` file.
+
+*The AppImage needs to be [made executable](http://discourse.appimage.org/t/how-to-make-an-appimage-executable/80) after download.*
+
+### Windows
+
+[**Download**](https://github.com/filipuic/playme/releases/latest) the `.exe` file.
+
 Future Plans:
 ----------
+- [ ] track player starts
 - [ ] create & set an icon
-- [ ] set up automatic updates delivery
 - [ ] display system tray icon & allow basic controls from there
 - [ ] display current song & current playlist in system tray
 - [ ] display notification on song changed (if window not visible)
@@ -27,6 +48,7 @@ Future Plans:
 - [ ] implement preferences
 - [ ] start on launch
 - [ ] customizable global shortcuts
+- [ ] set up automatic updates delivery
 - [ ] create a landing page
 - [ ] suggestions? 
 
