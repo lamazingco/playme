@@ -9,3 +9,6 @@ dist
 
 #system generated
 .DS_Store
+
+#npm generated
+package-lock.json

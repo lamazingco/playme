@@ -62,18 +62,21 @@ function createMenu() {
       submenu: [
         {
           label: 'play/Pause',
+          accelerator: 'Space',
           click() {
           	 playPause();
           }
         },
         {
           label: 'Next',
+          accelerator: 'shift+N',
           click() {
           	 next();
           }
         },
         {
           label: 'Previous',
+          accelerator: 'shift+P',
           click() {
           	 previous();
           }
