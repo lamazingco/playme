@@ -52,3 +52,17 @@ Future Plans:
 - [ ] create a landing page
 - [ ] suggestions? 
 
+
+Contributing:
+----------
+
+Thank you for deciding to contribute! In order to keep it clean & mainainable long term, we'd prefer to follow some good git practices.
+
+1. Fork the repo
+2. Create a local brach off `develop` (usually) named as following: `issue-number/1-3-keywords`
+3. Make the changes
+4. Follow the ![Commit Guidelines](static/CONTRIBUTING.md) for your commit title(s).
+4. Rebase & clean up commit history (or leave it as it is, but we'll `squash & merge`)
+5. Push the branch to your own fork
+6. Create a Pull Request from your fork to this repo
+7. Name the PR using the `message` used in commit, which follows the Commit Guidelines 
