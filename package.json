@@ -17,7 +17,7 @@
       "category": "music"
     },
     "linux": {
-      "category": "music",
+      "category": "AudioVideo",
       "target": [
         "AppImage"
       ]
