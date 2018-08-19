@@ -2,10 +2,10 @@
   "name": "playme",
   "version": "1.0.1",
   "description": "Elegant YouTube Music desktop app",
-  "main": "index.js",
-  "repository":"",
+  "main": "src/index.js",
+  "repository": "",
   "scripts": {
-    "start": "electron index.js",
+    "start": "electron src/index.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder -mwl"
   },
@@ -34,6 +34,7 @@
     "electron-builder": "^20.19.2"
   },
   "dependencies": {
+    "electron-window-state": "^4.1.1",
     "jquery": "^3.3.1"
   },
   "keywords": [
@@ -42,5 +43,5 @@
     "electron",
     "desktop",
     "youtube"
-]
+  ]
 }
