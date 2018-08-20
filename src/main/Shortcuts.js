@@ -1,17 +1,17 @@
 let playbackActions = require('./PlaybackActions.js')
 let { globalShortcut } = require('electron')
 
-function registerGlobalShortcuts(webContents) {
+function registerGlobalShortcuts(playbackActions) {
 	globalShortcut.register('MediaPlayPause', () => {
-      playbackActions.playPause(webContents);
+      playbackActions.playPause();
     });
 
     globalShortcut.register('MediaNextTrack', () => {
-      playbackActions.next(webContents);
+      playbackActions.next();
     });
 
     globalShortcut.register('MediaPreviousTrack', () => {
-      playbackActions.previous(webContents);
+      playbackActions.previous();
     });
 }
 

@@ -1,18 +1,14 @@
 const { Menu } = require('electron');
-let playbackActions = require('./PlaybackActions.js')
-let appActions = require('./AppActions.js')
 
-function createMenu(webContents, app) {
+function createMenu(playbackActions) {
   const topLevelItems = [
     {
       label: 'Application',
       submenu: [
         {
-          label: 'Quit',
+          label: 'Quit PlayMe',
           accelerator: 'CmdOrCtrl+Q',
-          click() {
-            appActions.quitApp(app);
-          }
+          role: 'quit'
         }
       ]
     },
@@ -22,19 +18,19 @@ function createMenu(webContents, app) {
         {
           label: 'play/Pause',
           click() {
-          	 playbackActions.playPause(webContents);
+          	 playbackActions.playPause();
           }
         },
         {
           label: 'Next',
           click() {
-          	 playbackActions.next(webContents);
+          	 playbackActions.next();
           }
         },
         {
           label: 'Previous',
           click() {
-          	 playbackActions.previous(webContents);
+          	 playbackActions.previous();
           }
         }
       ]

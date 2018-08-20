@@ -2,15 +2,18 @@ const { app, BrowserWindow, Menu, webContents } = require('electron');
 const path = require('path');
 const windowStateManager = require('electron-window-state')
 const mainMenu = require('./main/MainMenu.js')
+const trayMenu = require('./main/TrayMenu.js')
 const shortcuts = require('./main/Shortcuts.js')
+const PlaybackActions = require('./main/PlaybackActions.js')
 
-let mainWindow;
+let mainWindow, playbackActions;
 
 app.on('ready', init)
 
 function init () {
   createWindow()
   createMenu()
+  createTrayMenu()
   registerGlobalShortcuts()
 }
 
@@ -38,11 +41,21 @@ function createWindow () {
 }
 
 function createMenu() {
-  mainMenu.createMenu(mainWindow.webContents, app);
+  mainMenu.createMenu(getPlaybackActions());
 }
 
+function createTrayMenu() {
+  trayMenu.createTrayMenu(getPlaybackActions());
+}
 function registerGlobalShortcuts() {
-  shortcuts.registerGlobalShortcuts(mainWindow.webContents);
+  shortcuts.registerGlobalShortcuts(getPlaybackActions());
+}
+
+function getPlaybackActions() {
+  if (playbackActions == null) {
+      playbackActions = new PlaybackActions(mainWindow.webContents);
+  }
+  return playbackActions;
 }
 
 app.on('window-all-closed', () => {
