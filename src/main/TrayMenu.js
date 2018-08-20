@@ -4,7 +4,7 @@ const imageFolder = __dirname + '/../assets/icons';
 
 let tray, trayImage;
 
-function createTrayMenu(playbackActions) {
+function createTrayMenu(playbackActions, appActions) {
   if (platform == 'darwin') {
     trayImage = imageFolder + '/osx/trayTemplate.png';
   } else if (platform == 'win32') {
@@ -29,7 +29,15 @@ function createTrayMenu(playbackActions) {
     {label: 'Previous Track', click() {
       playbackActions.previous();
     }},
+
     {type: 'separator'},
+
+    {label: 'Show Window', click() {
+      appActions.showWindow();
+    }},
+
+    {type: 'separator'},
+
     {label: 'Quit PlayMe', role: 'quit'}
   ]);
 

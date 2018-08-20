@@ -5,8 +5,9 @@ const mainMenu = require('./main/MainMenu.js')
 const trayMenu = require('./main/TrayMenu.js')
 const shortcuts = require('./main/Shortcuts.js')
 const PlaybackActions = require('./main/PlaybackActions.js')
+const AppActions = require('./main/AppActions.js');
 
-let mainWindow, playbackActions;
+let mainWindow, playbackActions, appActions;
 
 app.on('ready', init)
 
@@ -45,7 +46,7 @@ function createMenu() {
 }
 
 function createTrayMenu() {
-  trayMenu.createTrayMenu(getPlaybackActions());
+  trayMenu.createTrayMenu(getPlaybackActions(), getAppActions());
 }
 function registerGlobalShortcuts() {
   shortcuts.registerGlobalShortcuts(getPlaybackActions());
@@ -56,6 +57,13 @@ function getPlaybackActions() {
       playbackActions = new PlaybackActions(mainWindow.webContents);
   }
   return playbackActions;
+}
+
+function getAppActions() {
+  if (appActions == null) {
+      appActions = new AppActions(mainWindow);
+  }
+  return appActions;
 }
 
 app.on('window-all-closed', () => {
