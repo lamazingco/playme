@@ -1,12 +1,12 @@
 
-let mainWindow;
+class AppActions {
+  constructor(mainWindow) {
+    this.mainWindow = mainWindow;
+  }
 
-function AppActions(mainWindow) {
-  this.mainWindow = mainWindow;
-}
-
-AppActions.prototype.showWindow = function() {
-    this.mainWindow.show();
+  showWindow() {
+      this.mainWindow.show();
+  }
 }
 
 module.exports = AppActions

@@ -1,25 +1,36 @@
 const {Tray, Menu} = require('electron')
-var platform = require('os').platform();
-const imageFolder = __dirname + '/../assets/icons';
+const platform = require('os').platform()
+const imageFolder = __dirname + '/../assets/icons'
 
-let tray, trayImage;
+class TrayMenu extends Tray {
+  constructor(playbackActions, appActions) {
+    super(getTrayIconPath());
 
-function createTrayMenu(playbackActions, appActions) {
-  if (platform == 'darwin') {
-    trayImage = imageFolder + '/osx/trayTemplate.png';
-  } else if (platform == 'win32') {
-    trayImage = imageFolder + '/win/tray.ico';
+    this.playbackActions = playbackActions
+    this.appActions = appActions
   }
 
-  tray = new Tray(trayImage);
-
-  if (platform == 'darwin') {
-    tray.setPressedImage(imageFolder + '/osx/trayHighlight.png');
+  createTrayMenu() {
+    if (platform == 'darwin') {
+      this.setPressedImage(imageFolder + '/osx/trayHighlight.png');
+    }
+    this.setToolTip('PlayMe');
+    this.setContextMenu(getTrayMenu(this.playbackActions, this.appActions));
   }
+}
 
-  tray.setToolTip('PlayMe');
+function getTrayIconPath() {
+  if (platform == 'darwin') {
+    // *nix: mac & linux
+    return imageFolder + '/osx/trayTemplate.png';
+  } else {
+    // windows
+    return imageFolder + '/win/tray.ico';
+  }
+}
 
-  const trayMenu = Menu.buildFromTemplate([
+function getTrayMenu(playbackActions, appActions) {
+  return Menu.buildFromTemplate([
     {label: 'Play/Pause', click() {
       playbackActions.playPause();
     }},
@@ -39,10 +50,7 @@ function createTrayMenu(playbackActions, appActions) {
     {type: 'separator'},
 
     {label: 'Quit PlayMe', role: 'quit'}
-  ]);
-
-  tray.setContextMenu(trayMenu);
-
+  ])
 }
 
-module.exports.createTrayMenu = createTrayMenu
+module.exports = TrayMenu

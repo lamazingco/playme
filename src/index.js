@@ -1,17 +1,16 @@
-const { app, BrowserWindow, Menu, webContents } = require('electron');
-const path = require('path');
-const windowStateManager = require('electron-window-state')
-const mainMenu = require('./main/MainMenu.js')
-const trayMenu = require('./main/TrayMenu.js')
-const shortcuts = require('./main/Shortcuts.js')
-const PlaybackActions = require('./main/PlaybackActions.js')
-const AppActions = require('./main/AppActions.js');
+const { app, Menu, webContents } = require('electron')
+const mainMenu = require('./main/MainMenu')
+const shortcuts = require('./main/Shortcuts')
+const TrayMenu = require('./main/TrayMenu')
+const PlaybackActions = require('./main/PlaybackActions')
+const AppActions = require('./main/AppActions')
+const MainWindow = require('./main/MainWindow')
 
-let mainWindow, playbackActions, appActions;
+let mainWindow, playbackActions, appActions, trayMenu;
 
 app.on('ready', init)
 
-function init () {
+function init() {
   createWindow()
   createMenu()
   createTrayMenu()
@@ -19,26 +18,7 @@ function init () {
 }
 
 function createWindow () {
-  let mainWindowState = windowStateManager({
-    defaultWidth: 1024,
-    defaultHeight: 768
-  })
-
-  mainWindow = new BrowserWindow({
-    width: mainWindowState.width,
-    height: mainWindowState.height,
-    x: mainWindowState.x,
-    y: mainWindowState.y,
-    minWidth: 800,
-    minHeight: 600,
-    backgroundColor: '#181818',
-    icon: path.join(__dirname, 'assets/icons/png/64x64.png')
-  });
-
-  mainWindowState.manage(mainWindow)
-
-  mainWindow.loadURL('https://music.youtube.com');
-  //mainWindow.openDevTools({ mode: 'bottom' });
+  mainWindow = new MainWindow();
 }
 
 function createMenu() {
@@ -46,7 +26,8 @@ function createMenu() {
 }
 
 function createTrayMenu() {
-  trayMenu.createTrayMenu(getPlaybackActions(), getAppActions());
+  trayMenu = new TrayMenu(getPlaybackActions(), getAppActions());
+  trayMenu.createTrayMenu();
 }
 function registerGlobalShortcuts() {
   shortcuts.registerGlobalShortcuts(getPlaybackActions());

@@ -1,4 +1,4 @@
-let playbackActions = require('./PlaybackActions.js')
+let playbackActions = require('./PlaybackActions')
 let { globalShortcut } = require('electron')
 
 function registerGlobalShortcuts(playbackActions) {
