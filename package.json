@@ -1,9 +1,9 @@
 {
   "name": "playme",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Elegant YouTube Music desktop app",
   "main": "src/index.js",
-  "repository": "",
+  "repository": "https://github.com/filipuic/playme",
   "scripts": {
     "start": "electron src/index.js",
     "pack": "electron-builder --dir",
