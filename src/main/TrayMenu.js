@@ -1,10 +1,10 @@
-const {Tray, Menu} = require('electron')
+const {Tray, Menu, nativeImage } = require('electron')
 const platform = require('os').platform()
-const imageFolder = __dirname + '/../assets/icons'
+const imageFolder = __dirname + '/assets/icons'
 
 class TrayMenu extends Tray {
   constructor(playbackActions, appActions) {
-    super(getTrayIconPath());
+    super(getTrayIcon());
 
     this.playbackActions = playbackActions
     this.appActions = appActions
@@ -17,6 +17,10 @@ class TrayMenu extends Tray {
     this.setToolTip('PlayMe');
     this.setContextMenu(getTrayMenu(this.playbackActions, this.appActions));
   }
+}
+
+function getTrayIcon() {
+  return nativeImage.createFromPath(getTrayIconPath());
 }
 
 function getTrayIconPath() {
