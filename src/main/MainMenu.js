@@ -6,6 +6,22 @@ function createMenu(playbackActions) {
       label: 'Application',
       submenu: [
         {
+          label: 'Toggle Developer Tools',
+          accelerator: (function() {
+            if (process.platform === 'darwin')
+              return 'Alt+Command+I';
+            else
+              return 'Ctrl+Shift+I';
+          })(),
+          click: function(item, focusedWindow) {
+            if (focusedWindow)
+              focusedWindow.toggleDevTools();
+          }
+        },
+        {
+          type: 'separator'
+        },
+        {
           label: 'Quit PlayMe',
           accelerator: 'CmdOrCtrl+Q',
           role: 'quit'
